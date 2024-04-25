@@ -134,21 +134,35 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              const SizedBox(height: 4),
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.indigo),
-                ),
-                child: Text(
-                    "Kemal Crisannaufal is a 6th-semester student S1 Informatics program at Telkom University. A committed and academically oriented student, possess problem solving skills and always strive to complete tasks well and with full responsibility.",
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.grey[800],
-                      fontWeight: FontWeight.w400,
-                    )),
+              Stack(
+                children: <Widget>[
+                  Container(
+                    width: 340,
+                    height: 200,
+                    color: Colors.indigo[900],
+                  ),
+                  Container(
+                    width: 320,
+                    height: 180,
+                    color: Colors.indigo[600],
+                  ),
+                  Container(
+                    width: 300,
+                    height: 165,
+                    color: Colors.indigo[100],
+                    child: Container(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                          "Kemal Crisannaufal is a 6th-semester student S1 Informatics program at Telkom University. A committed and academically oriented student, possess problem solving skills and always strive to complete tasks well and with full responsibility.",
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey[800],
+                            fontWeight: FontWeight.w400,
+                          )),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -368,6 +382,20 @@ class MyApp extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30),
+              Builder(
+                builder: (BuildContext context) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => AdditionalPage()),
+                      );
+                    },
+                    child: Text('Go to New Page'),
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
               Text(
                 "Copyright © 2024 Kemalcrisannaufal",
                 style: profileTextStyle,

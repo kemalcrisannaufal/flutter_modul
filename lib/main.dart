@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'additional.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +9,12 @@ class MyApp extends StatelessWidget {
   final TextStyle profileTextStyle = const TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w600,
-    color: Colors.indigo,
+  );
+
+  final TextStyle projectTextStyle = const TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
   );
 
   final TextStyle gridTextStyle = const TextStyle(
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 230, 237, 231),
+        backgroundColor: Colors.indigo[50],
         appBar: AppBar(
           title: const Text('KCR', style: TextStyle(color: Colors.white)),
           backgroundColor: Colors.indigo,
@@ -82,7 +86,6 @@ class MyApp extends StatelessWidget {
                     childAspectRatio: 2.0,
                     padding: const EdgeInsets.all(4.0),
                     crossAxisSpacing: 10.0,
-                    physics: const NeverScrollableScrollPhysics(),
                     children: [
                       Container(
                         color: Colors.indigo[300],
@@ -122,7 +125,33 @@ class MyApp extends StatelessWidget {
                       ),
                     ]),
               ),
+              const SizedBox(height: 10),
+              Text(
+                "About Me",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.indigo[900],
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 4),
               Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.indigo),
+                ),
+                child: Text(
+                    "Kemal Crisannaufal is a 6th-semester student S1 Informatics program at Telkom University. A committed and academically oriented student, possess problem solving skills and always strive to complete tasks well and with full responsibility.",
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.grey[800],
+                      fontWeight: FontWeight.w400,
+                    )),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -143,8 +172,8 @@ class MyApp extends StatelessWidget {
                             style: profileTextStyle,
                           ),
                           subtitle:
-                              Text("2019 - 2023", style: profileTextStyle),
-                          leading: Image(
+                              Text("2021 - 2025", style: profileTextStyle),
+                          leading: const Image(
                             image: AssetImage('assets/images/telyu.png'),
                           )),
                     ),
@@ -155,15 +184,196 @@ class MyApp extends StatelessWidget {
                           "SMA Negeri 1 Jatinangor",
                           style: profileTextStyle,
                         ),
-                        subtitle: Text("2019 - 2023", style: profileTextStyle),
-                        leading: Image(
+                        subtitle: Text("2018 - 2021", style: profileTextStyle),
+                        leading: const Image(
                           image: AssetImage('assets/images/smanja.png'),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.indigo[300],
+                      child: ListTile(
+                        title: Text(
+                          "SMP Negeri 1 Jatinangor",
+                          style: profileTextStyle,
+                        ),
+                        subtitle: Text("2015 - 2018", style: profileTextStyle),
+                        leading: const Image(
+                          image: AssetImage('assets/images/nesaja.png'),
                         ),
                       ),
                     ),
                   ],
                 ),
-              )
+              ),
+              const SizedBox(height: 10),
+              Text(
+                "Project",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.indigo[900],
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 4),
+              SizedBox(
+                height: 240,
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  primary: false,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
+                  childAspectRatio: 1.5,
+                  children: [
+                    Container(
+                      color: Colors.indigoAccent.shade100,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.sports_esports,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              "Chess Program",
+                              style: projectTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.indigoAccent,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.local_parking,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              "Raedam Parking",
+                              style: projectTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.indigoAccent,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.check_box_outlined,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              "To Do List",
+                              style: projectTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.indigoAccent.shade700,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.sports_soccer_sharp,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              "Maenball",
+                              style: projectTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                "Contact",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.indigo[900],
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.email,
+                        color: Colors.indigo,
+                        size: 30,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "kemalcrisannaufal@gmail.com",
+                        style: profileTextStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.phone,
+                        color: Colors.indigo,
+                        size: 30,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "081221891720",
+                        style: profileTextStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: Colors.indigo,
+                        size: 30,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Bandung Indonesia",
+                        style: profileTextStyle,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              const SizedBox(height: 30),
+              Text(
+                "Copyright © 2024 Kemalcrisannaufal",
+                style: profileTextStyle,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
             ],
           ),
         ),
